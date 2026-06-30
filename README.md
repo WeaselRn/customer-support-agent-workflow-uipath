@@ -12,19 +12,10 @@ The workflow begins by analyzing incoming support tickets, automatically generat
 
 ---
 
-# 🏗 Architecture
-
-> Replace this image with your architecture diagram.
-
-![Architecture](docs/architecture.png)
-
----
 
 # 🔄 Workflow
 
-> Replace this image with your BPMN workflow screenshot.
-
-![Workflow](docs/workflow.png)
+![Workflow](maestro-ai-support-workflow/docs/workflow.png)
 
 ---
 
@@ -49,7 +40,7 @@ The workflow consists of the following autonomous AI agents:
 |--------|----------------|
 | **Triage Agent** | Understands the ticket, classifies intent, category, severity, and sentiment. |
 | **Resolution Agent** | Determines the root cause, generates a solution, and drafts a customer response. |
-| **Escalation Manager Agent** | Routes unresolved tickets to the appropriate specialist AI agent. |
+| **Routing Agent** | Routes unresolved tickets to the appropriate specialist AI agent. |
 | **Support Specialist Agent** | Handles authentication, account access, configuration, and general support issues. |
 | **Engineering Specialist Agent** | Handles software defects, API failures, crashes, infrastructure, and technical issues. |
 | **Billing Specialist Agent** | Resolves billing, subscription, invoice, payment, and refund requests. |
@@ -76,7 +67,7 @@ Can AI Resolve?
  ┌─────┴─────┐
  │           │
  ▼           ▼
-Automatic   Escalation Manager
+Automatic   Routing Agent
 Response          │
                   ▼
          Specialist AI Agent
@@ -151,9 +142,9 @@ This solution does **not** use coded agents. All AI agents were created using Ui
 │   ├── review-agent.md
 │   └── learning-agent.md
 ├── docs/
-│   ├── architecture.png
-│   ├── workflow.png
-│   └── screenshots/
+│   └── workflow.png
+│   
+│   
 └── LICENSE
 ```
 
