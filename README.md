@@ -165,31 +165,47 @@ This repository contains everything required to understand and reproduce the sol
 
 # 🚀 Setup Instructions
 
-## Prerequisites
+### Prerequisites
 
-- UiPath Automation Cloud
-- UiPath Maestro
-- UiPath Agent Builder
-- Access to a supported LLM (Gemini/OpenAI)
+- UiPath Automation Cloud account
+- UiPath Maestro enabled
+- UiPath Agent Builder enabled
+- Access to Gemini or OpenAI model
+- Required permissions to publish agents
 
-## Installation
+### Steps
 
-1. Clone this repository.
+1. Clone this repository:
+       ```bash
+git clone https://github.com/WeaselRn/customer-support-agent-workflow-uipath ```
+2. Import `solution.uis` into UiPath Automation Cloud.
 
-```bash
-git clone https://github.com/<username>/<repository>.git
-```
+3. Open the imported solution.
 
-2. Import the `solution.uis` package into UiPath Automation Cloud.
+4. Open the BPMN workflow in Maestro.
 
-3. Open the BPMN workflow in UiPath Studio Web.
+5. Verify that all AI agents are present:
+   - Triage Agent
+   - Resolution Agent
+   - Routing Agent
+   - Support Specialist Agent
+   - Engineering Specialist Agent
+   - Billing Specialist Agent
+   - Product Specialist Agent
+   - Review Agent
+   - Learning Agent
 
-4. Configure the required AI model connections if prompted.
+6. Configure the LLM connection if prompted.
 
-5. Publish the agents.
+7. Publish all agents.
 
-6. Run the Maestro workflow.
+8. Publish the BPMN workflow.
 
+9. Start a new workflow execution.
+
+10. Provide a sample customer ticket as input.
+
+11. Observe the orchestration as the ticket moves through triage, resolution, routing, specialist handling, QA review, and knowledge base generation.
 ---
 
 # 📊 Example Workflow
