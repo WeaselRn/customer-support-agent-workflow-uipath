@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="dacaa69c">
+  <bpmn:process id="Process_1" name="Process">
+    <bpmn:extensionElements>
+      <uipath:variables version="v1">
+        <uipath:input id="vHUCMQZKM" name="ticket_text" type="string" elementId="Event_4MkuVE" default="I upgraded my account yesterday and now I cannot log in. Every attempt results in an authentication error." />
+        <uipath:inputOutput id="ticketText" name="ticket_text" type="string" elementId="Event_4MkuVE" />
+        <uipath:inputOutput id="error4" name="Error" type="jsonSchema" elementId="Activity_EbwHpF"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="kbTitle" name="kb_title" type="string" elementId="Activity_EbwHpF" />
+        <uipath:inputOutput id="problemSummary" name="problem_summary" type="string" elementId="Activity_EbwHpF" />
+        <uipath:inputOutput id="rootCause" name="root_cause" type="string" elementId="Activity_EbwHpF" />
+        <uipath:inputOutput id="resolution" name="resolution" type="string" elementId="Activity_EbwHpF" />
+        <uipath:inputOutput id="articleMarkdown" name="article_markdown" type="string" elementId="Activity_EbwHpF" />
+        <uipath:inputOutput id="keywords" name="keywords" type="string" elementId="Activity_EbwHpF" />
+        <uipath:inputOutput id="error" name="Error" type="jsonSchema" elementId="Activity_CWOtgG"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="intent" name="intent" type="string" elementId="Activity_CWOtgG" />
+        <uipath:inputOutput id="sentiment" name="sentiment" type="string" elementId="Activity_CWOtgG" />
+        <uipath:inputOutput id="severity" name="severity" type="string" elementId="Activity_CWOtgG" />
+        <uipath:inputOutput id="category" name="category" type="string" elementId="Activity_CWOtgG" />
+        <uipath:inputOutput id="triageConfidence" name="triage_confidence" type="number" elementId="Activity_CWOtgG" />
+        <uipath:inputOutput id="error2" name="Error" type="jsonSchema" elementId="Activity_Owxh7U"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="rootCause2" name="root_cause" type="string" elementId="Activity_Owxh7U" />
+        <uipath:inputOutput id="resolutionSteps2" name="resolution_steps" type="string" elementId="Activity_Owxh7U" />
+        <uipath:inputOutput id="customerResponse2" name="customer_response" type="string" elementId="Activity_Owxh7U" />
+        <uipath:inputOutput id="resolutionConfidence" name="resolution_confidence" type="number" elementId="Activity_Owxh7U" />
+        <uipath:inputOutput id="error5" name="Error" type="jsonSchema" elementId="Activity_RmxXYH"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="finalResponse" name="final_response" type="string" elementId="Activity_RmxXYH" />
+        <uipath:inputOutput id="specialistNotes" name="specialist_notes" type="string" elementId="Activity_RmxXYH" />
+        <uipath:inputOutput id="recommendedNextAction" name="recommended_next_action" type="string" elementId="Activity_RmxXYH" />
+        <uipath:inputOutput id="confidence" name="confidence" type="number" elementId="Activity_RmxXYH" />
+        <uipath:inputOutput id="error6" name="Error" type="jsonSchema" elementId="Activity_pVfgj6"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="engineeringNotes" name="engineering_notes" type="string" elementId="Activity_pVfgj6" />
+        <uipath:inputOutput id="engineeringFinalResponse" name="final_response" type="string" elementId="Activity_pVfgj6" />
+        <uipath:inputOutput id="bugPriority" name="bug_priority" type="string" elementId="Activity_pVfgj6" />
+        <uipath:inputOutput id="engineeringRecommendedAction" name="recommended_next_action" type="string" elementId="Activity_pVfgj6" />
+        <uipath:inputOutput id="engineeringConfidence" name="confidence" type="number" elementId="Activity_pVfgj6" />
+        <uipath:inputOutput id="error7" name="Error" type="jsonSchema" elementId="Activity_CEatIo"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="billingFinalResponse" name="final_response" type="string" elementId="Activity_CEatIo" />
+        <uipath:inputOutput id="billingAction" name="billing_action" type="string" elementId="Activity_CEatIo" />
+        <uipath:inputOutput id="billingSpecialistNotes" name="specialist_notes" type="string" elementId="Activity_CEatIo" />
+        <uipath:inputOutput id="billingConfidence" name="confidence" type="number" elementId="Activity_CEatIo" />
+        <uipath:inputOutput id="error8" name="Error" type="jsonSchema" elementId="Activity_Xm7WdB"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="productFeatureSummary" name="feature_summary" type="string" elementId="Activity_Xm7WdB" />
+        <uipath:inputOutput id="productBusinessValue" name="business_value" type="string" elementId="Activity_Xm7WdB" />
+        <uipath:inputOutput id="productFinalResponse" name="final_response" type="string" elementId="Activity_Xm7WdB" />
+        <uipath:inputOutput id="productConfidence" name="confidence" type="number" elementId="Activity_Xm7WdB" />
+        <uipath:inputOutput id="error9" name="Error" type="jsonSchema" elementId="Activity_30Ym6K"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="reviewStatus" name="review_status" type="string" elementId="Activity_30Ym6K" />
+        <uipath:inputOutput id="finalResponse2" name="final_response" type="string" elementId="Activity_30Ym6K" />
+        <uipath:inputOutput id="reviewerNotes" name="reviewer_notes" type="string" elementId="Activity_30Ym6K" />
+        <uipath:inputOutput id="qualityScore" name="quality_score" type="number" elementId="Activity_30Ym6K" />
+        <uipath:inputOutput id="error3" name="Error" type="jsonSchema" elementId="Activity_H5D2m8"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="assignedSpecialist" name="assigned_specialist" type="string" elementId="Activity_H5D2m8" />
+        <uipath:inputOutput id="routingReason" name="routing_reason" type="string" elementId="Activity_H5D2m8" />
+        <uipath:inputOutput id="escalationPriority" name="escalation_priority" type="string" elementId="Activity_H5D2m8" />
+        <uipath:inputOutput id="estimatedSla" name="estimated_sla" type="string" elementId="Activity_H5D2m8" />
+        <uipath:inputOutput id="reviewStatus2" name="review_status" type="string" elementId="Activity_H5D2m8" />
+        <uipath:inputOutput id="finalResponse3" name="final_response" type="string" elementId="Activity_H5D2m8" />
+        <uipath:inputOutput id="reviewerNotes2" name="reviewer_notes" type="string" elementId="Activity_H5D2m8" />
+        <uipath:inputOutput id="qualityScore2" name="quality_score" type="number" elementId="Activity_H5D2m8" />
+      </uipath:variables>
+      <uipath:bindings version="v1">
+        <uipath:binding id="bS4cAZgbc" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Triage Resolution Routing Learning Review Support Specialist Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bFIYerA2i" name="name" type="string" default="Triage Agent" resource="process" resourceSubType="Agent" resourceKey="Triage Resolution Routing Learning Review Support Specialist Agent" propertyAttribute="name" />
+        <uipath:binding id="bxqN0y73G" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Triage Resolution Routing Learning Review Support Specialist Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bV3oyiA3P" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Resolution Routing Learning Review Support Specialist Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="b02vfE1Yo" name="name" type="string" default="Resolution Agent" resource="process" resourceSubType="Agent" resourceKey="Resolution Routing Learning Review Support Specialist Agent" propertyAttribute="name" />
+        <uipath:binding id="bDcJVRNaY" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Routing Learning Review Support Specialist Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bXb4XSe28" name="name" type="string" default="Routing Agent" resource="process" resourceSubType="Agent" resourceKey="Routing Learning Review Support Specialist Agent" propertyAttribute="name" />
+        <uipath:binding id="bImgyeRwu" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Learning Review Support Specialist Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bPTgymLI9" name="name" type="string" default="Learning Agent" resource="process" resourceSubType="Agent" resourceKey="Learning Review Support Specialist Agent" propertyAttribute="name" />
+        <uipath:binding id="b4lHpt4Bv" name="folderPath" type="string" default=".app" resource="app" resourceKey=".app.Respond to request" propertyAttribute="folderPath" />
+        <uipath:binding id="bbzLHq9Bk" name="name" type="string" default="Respond to request" resource="app" resourceKey=".app.Respond to request" propertyAttribute="name" />
+        <uipath:binding id="bprIKCxwa" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Support Specialist Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="b63i8fxlI" name="name" type="string" default="Support Specialist Agent" resource="process" resourceSubType="Agent" resourceKey="Support Specialist Agent" propertyAttribute="name" />
+        <uipath:binding id="bEngSpecFolder" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Engineering Specialist Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bEngSpecName" name="name" type="string" default="Engineering Specialist Agent" resource="process" resourceSubType="Agent" resourceKey="Engineering Specialist Agent" propertyAttribute="name" />
+        <uipath:binding id="bBillSpecFolder" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Billing Specialist Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bBillSpecName" name="name" type="string" default="Billing Specialist Agent" resource="process" resourceSubType="Agent" resourceKey="Billing Specialist Agent" propertyAttribute="name" />
+        <uipath:binding id="bProdSpecFolder" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Product Specialist Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bProdSpecName" name="name" type="string" default="Product Specialist Agent" resource="process" resourceSubType="Agent" resourceKey="Product Specialist Agent" propertyAttribute="name" />
+        <uipath:binding id="bZWxUUAaN" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bWwHjlino" name="name" type="string" default="Agent" resource="process" resourceSubType="Agent" resourceKey="Agent" propertyAttribute="name" />
+        <uipath:binding id="bydBJw8Yq" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bTctOH3br" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Review Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bdRrBAX0w" name="name" type="string" default="Review Agent" resource="process" resourceSubType="Agent" resourceKey="Review Agent" propertyAttribute="name" />
+      </uipath:bindings>
+      <uipath:migrationVersion version="15" />
+      <uipath:intsvcActivityConfig version="v2" />
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="Event_4MkuVE" name="Ticket Received">
+      <bpmn:extensionElements>
+        <uipath:entryPointId value="b4a7af2d-5542-4f80-ad3e-8159c5ca019d" />
+        <uipath:mapping version="v1">
+          <uipath:type value="BPMN.Variables" version="v1" />
+          <uipath:output name="ticket_text" type="string" source="=vars.vHUCMQZKM" var="ticketText" />
+        </uipath:mapping>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>edge_d1yIxT</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_I6Gnib" name="Can AI resolve?">
+      <bpmn:incoming>edge_gucEQ5</bpmn:incoming>
+      <bpmn:outgoing>edge_BqAwZ6</bpmn:outgoing>
+      <bpmn:outgoing>edge_3KyNAZ</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Activity_CWOtgG" name="Triage Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bFIYerA2i" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bxqN0y73G" />
+            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ticket_text":{"type":"string"}},"required":["ticket_text"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"ticket_text":"=vars.ticketText"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error" />
+          <uipath:output name="intent" type="string" source="=intent" var="intent" />
+          <uipath:output name="sentiment" type="string" source="=sentiment" var="sentiment" />
+          <uipath:output name="severity" type="string" source="=severity" var="severity" />
+          <uipath:output name="category" type="string" source="=category" var="category" />
+          <uipath:output name="triage_confidence" type="number" source="=triage_confidence" var="triageConfidence" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_d1yIxT</bpmn:incoming>
+      <bpmn:outgoing>edge_M1UVHb</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_Owxh7U" name="Resolution Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.b02vfE1Yo" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bV3oyiA3P" />
+            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ticket_text":{"type":"string"},"category":{"type":"string"},"severity":{"type":"string"}},"required":["ticket_text","category","severity"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"ticket_text":"=vars.ticketText","category":"=vars.category","severity":"=vars.severity"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error2" />
+          <uipath:output name="root_cause" type="string" source="=root_cause" var="rootCause2" />
+          <uipath:output name="resolution_steps" type="string" source="=resolution_steps" var="resolutionSteps2" />
+          <uipath:output name="customer_response" type="string" source="=customer_response" var="customerResponse2" />
+          <uipath:output name="resolution_confidence" type="number" source="=resolution_confidence" var="resolutionConfidence" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_M1UVHb</bpmn:incoming>
+      <bpmn:outgoing>edge_gucEQ5</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_H5D2m8" name="Routing Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bXb4XSe28" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bDcJVRNaY" />
+            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ticket_text":{"type":"string"},"category":{"type":"string"},"severity":{"type":"string"},"intent":{"type":"string"},"sentiment":{"type":"string"},"root_cause":{"type":"string"},"suggested_resolution":{"type":"string"},"resolution_confidence":{"type":"number"},"triage_confidence":{"type":"number"},"resolution_steps":{"type":"string"},"customer_response":{"type":"string"}},"required":["ticket_text","category","severity","intent","sentiment","root_cause","suggested_resolution","resolution_confidence","triage_confidence","resolution_steps","customer_response"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"ticket_text":"=vars.ticketText","category":"=vars.category","severity":"=vars.severity","intent":"=vars.intent","sentiment":"=vars.sentiment","root_cause":"=vars.rootCause2","suggested_resolution":"=vars.customerResponse2","resolution_confidence":"=vars.resolutionConfidence","triage_confidence":"=vars.triageConfidence","resolution_steps":"=vars.resolutionSteps2","customer_response":"=vars.customerResponse2"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error3" />
+          <uipath:output name="assigned_specialist" type="string" source="=assigned_specialist" var="assignedSpecialist" />
+          <uipath:output name="routing_reason" type="string" source="=routing_reason" var="routingReason" />
+          <uipath:output name="escalation_priority" type="string" source="=escalation_priority" var="escalationPriority" />
+          <uipath:output name="estimated_sla" type="string" source="=estimated_sla" var="estimatedSla" />
+          <uipath:output name="review_status" type="string" source="=review_status" var="reviewStatus2" />
+          <uipath:output name="final_response" type="string" source="=final_response" var="finalResponse3" />
+          <uipath:output name="reviewer_notes" type="string" source="=reviewer_notes" var="reviewerNotes2" />
+          <uipath:output name="quality_score" type="number" source="=quality_score" var="qualityScore2" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_BqAwZ6</bpmn:incoming>
+      <bpmn:outgoing>edge_90Rg0L</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_EbwHpF" name="Learning Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bPTgymLI9" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bImgyeRwu" />
+            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ticket_text":{"type":"string"},"final_resolution":{"type":"string"}},"required":["ticket_text","final_resolution"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"ticket_text":"=vars.ticketText","final_resolution":"=vars.customerResponse2"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error4" />
+          <uipath:output name="kb_title" type="string" source="=kb_title" var="kbTitle" />
+          <uipath:output name="keywords" type="string" source="=keywords" var="keywords" />
+          <uipath:output name="problem_summary" type="string" source="=problem_summary" var="problemSummary" />
+          <uipath:output name="root_cause" type="string" source="=root_cause" var="rootCause" />
+          <uipath:output name="resolution" type="string" source="=resolution" var="resolution" />
+          <uipath:output name="article_markdown" type="string" source="=article_markdown" var="articleMarkdown" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_aI0YOK</bpmn:incoming>
+      <bpmn:outgoing>edge_vUKGe2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_RmxXYH" name="Support Specialist Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.b63i8fxlI" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bprIKCxwa" />
+            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ticket_text":{"type":"string"},"intent":{"type":"string"},"category":{"type":"string"},"severity":{"type":"string"},"sentiment":{"type":"string"},"triage_confidence":{"type":"number"},"root_cause":{"type":"string"},"resolution_steps":{"type":"string"},"customer_response":{"type":"string"},"resolution_confidence":{"type":"number"}},"required":["ticket_text","intent","category","severity","sentiment","triage_confidence","root_cause","resolution_steps","customer_response","resolution_confidence"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"ticket_text":"=vars.ticketText","intent":"=vars.intent","category":"=vars.category","severity":"=vars.severity","sentiment":"=vars.severity","triage_confidence":"=vars.triageConfidence","root_cause":"=vars.rootCause2","resolution_steps":"=vars.resolutionSteps2","customer_response":"=vars.customerResponse2","resolution_confidence":"=vars.resolutionConfidence"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error5" />
+          <uipath:output name="final_response" type="string" source="=final_response" var="finalResponse" />
+          <uipath:output name="specialist_notes" type="string" source="=specialist_notes" var="specialistNotes" />
+          <uipath:output name="recommended_next_action" type="string" source="=recommended_next_action" var="recommendedNextAction" />
+          <uipath:output name="confidence" type="number" source="=confidence" var="confidence" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_23OGCn</bpmn:incoming>
+      <bpmn:outgoing>edge_uQPmPc</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:task id="Event_pcaqKh" name="Send response">
+      <bpmn:incoming>edge_3KyNAZ</bpmn:incoming>
+      <bpmn:incoming>edge_qLCO4z</bpmn:incoming>
+      <bpmn:outgoing>edge_aI0YOK</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_n4JxjR" name="End task">
+      <bpmn:incoming>edge_vUKGe2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_pVfgj6" name="Engineering Specialist Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bEngSpecName" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bEngSpecFolder" />
+            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ticket_text":{"type":"string"},"category":{"type":"string"},"severity":{"type":"string"},"root_cause":{"type":"string"},"resolution_steps":{"type":"string"}},"required":["ticket_text","category","severity","root_cause","resolution_steps"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"ticket_text":"=vars.ticketText","category":"=vars.category","severity":"=vars.severity","root_cause":"=vars.rootCause2","resolution_steps":"=vars.resolutionSteps2"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error6" />
+          <uipath:output name="engineering_notes" type="string" source="=engineering_notes" var="engineeringNotes" />
+          <uipath:output name="final_response" type="string" source="=final_response" var="engineeringFinalResponse" />
+          <uipath:output name="bug_priority" type="string" source="=bug_priority" var="bugPriority" />
+          <uipath:output name="recommended_next_action" type="string" source="=recommended_next_action" var="engineeringRecommendedAction" />
+          <uipath:output name="confidence" type="number" source="=confidence" var="engineeringConfidence" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_rlzX2w</bpmn:incoming>
+      <bpmn:outgoing>edge_45ifuO</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_CEatIo" name="Billing Specialist Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bBillSpecName" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bBillSpecFolder" />
+            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ticket_text":{"type":"string"},"category":{"type":"string"},"severity":{"type":"string"},"sentiment":{"type":"string"}},"required":["ticket_text","category","severity","sentiment"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"ticket_text":"=vars.ticketText","category":"=vars.category","severity":"=vars.severity","sentiment":"=vars.sentiment"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error7" />
+          <uipath:output name="final_response" type="string" source="=final_response" var="billingFinalResponse" />
+          <uipath:output name="billing_action" type="string" source="=billing_action" var="billingAction" />
+          <uipath:output name="specialist_notes" type="string" source="=specialist_notes" var="billingSpecialistNotes" />
+          <uipath:output name="confidence" type="number" source="=confidence" var="billingConfidence" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_p83pt7</bpmn:incoming>
+      <bpmn:outgoing>edge_hTNI4p</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_Xm7WdB" name="Product Specialist Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bProdSpecName" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bProdSpecFolder" />
+            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ticket_text":{"type":"string"},"intent":{"type":"string"},"category":{"type":"string"},"sentiment":{"type":"string"}},"required":["ticket_text","intent","category","sentiment"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"ticket_text":"=vars.ticketText","intent":"=vars.intent","category":"=vars.category","sentiment":"=vars.sentiment"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error8" />
+          <uipath:output name="feature_summary" type="string" source="=feature_summary" var="productFeatureSummary" />
+          <uipath:output name="business_value" type="string" source="=business_value" var="productBusinessValue" />
+          <uipath:output name="final_response" type="string" source="=final_response" var="productFinalResponse" />
+          <uipath:output name="confidence" type="number" source="=confidence" var="productConfidence" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_upttls</bpmn:incoming>
+      <bpmn:outgoing>edge_WD4Gke</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_30Ym6K" name="Review Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bdRrBAX0w" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bTctOH3br" />
+            <uipath:input name="_label" type="string" value="Review Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ticket_text":{"type":"string"},"intent":{"type":"string"},"category":{"type":"string"},"severity":{"type":"string"},"sentiment":{"type":"string"},"root_cause":{"type":"string"},"resolution_steps":{"type":"string"},"customer_response":{"type":"string"},"resolution_confidence":{"type":"number"}},"required":["ticket_text","intent","category","severity","sentiment","root_cause","resolution_steps","customer_response","resolution_confidence"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"ticket_text":"=vars.ticketText","intent":"=vars.intent","category":"=vars.category","severity":"=vars.severity","sentiment":"=vars.severity","root_cause":"=vars.rootCause2","resolution_steps":"=vars.resolutionSteps2","customer_response":"=vars.customerResponse2","resolution_confidence":"=vars.resolutionConfidence"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error9" />
+          <uipath:output name="review_status" type="string" source="=review_status" var="reviewStatus" />
+          <uipath:output name="final_response" type="string" source="=final_response" var="finalResponse2" />
+          <uipath:output name="reviewer_notes" type="string" source="=reviewer_notes" var="reviewerNotes" />
+          <uipath:output name="quality_score" type="number" source="=quality_score" var="qualityScore" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_HaKOct</bpmn:incoming>
+      <bpmn:outgoing>edge_qLCO4z</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_jYykek">
+      <bpmn:incoming>edge_90Rg0L</bpmn:incoming>
+      <bpmn:outgoing>edge_23OGCn</bpmn:outgoing>
+      <bpmn:outgoing>edge_rlzX2w</bpmn:outgoing>
+      <bpmn:outgoing>edge_p83pt7</bpmn:outgoing>
+      <bpmn:outgoing>edge_upttls</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_eS8M9Q">
+      <bpmn:incoming>edge_uQPmPc</bpmn:incoming>
+      <bpmn:incoming>edge_45ifuO</bpmn:incoming>
+      <bpmn:incoming>edge_hTNI4p</bpmn:incoming>
+      <bpmn:incoming>edge_WD4Gke</bpmn:incoming>
+      <bpmn:outgoing>edge_HaKOct</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="edge_d1yIxT" sourceRef="Event_4MkuVE" targetRef="Activity_CWOtgG" />
+    <bpmn:sequenceFlow id="edge_M1UVHb" sourceRef="Activity_CWOtgG" targetRef="Activity_Owxh7U" />
+    <bpmn:sequenceFlow id="edge_gucEQ5" sourceRef="Activity_Owxh7U" targetRef="Gateway_I6Gnib" />
+    <bpmn:sequenceFlow id="edge_BqAwZ6" name="Confidence &#60; 80" sourceRef="Gateway_I6Gnib" targetRef="Activity_H5D2m8">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.resolutionConfidence &lt; 80</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_3KyNAZ" name="Confidence &#62;= 80" sourceRef="Gateway_I6Gnib" targetRef="Event_pcaqKh">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.resolutionConfidence &gt;= 80</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_aI0YOK" sourceRef="Event_pcaqKh" targetRef="Activity_EbwHpF" />
+    <bpmn:sequenceFlow id="edge_vUKGe2" sourceRef="Activity_EbwHpF" targetRef="Event_n4JxjR" />
+    <bpmn:sequenceFlow id="edge_90Rg0L" sourceRef="Activity_H5D2m8" targetRef="Gateway_jYykek" />
+    <bpmn:sequenceFlow id="edge_23OGCn" name="assigned specialist = support specialist agent" sourceRef="Gateway_jYykek" targetRef="Activity_RmxXYH">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.assignedSpecialist === "Support Specialist Agent"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_rlzX2w" name="assigned specialist = engineering specialist agent" sourceRef="Gateway_jYykek" targetRef="Activity_pVfgj6">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.assignedSpecialist === "Engineering Specialist Agent"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_p83pt7" name="assigned specialist = billing specialist agent" sourceRef="Gateway_jYykek" targetRef="Activity_CEatIo">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.assignedSpecialist === "Billing Specialist Agent"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_upttls" name="assigned specialist = product specialist agent" sourceRef="Gateway_jYykek" targetRef="Activity_Xm7WdB">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.assignedSpecialist === 'Product Specialist Agent'</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_uQPmPc" sourceRef="Activity_RmxXYH" targetRef="Gateway_eS8M9Q" />
+    <bpmn:sequenceFlow id="edge_45ifuO" sourceRef="Activity_pVfgj6" targetRef="Gateway_eS8M9Q" />
+    <bpmn:sequenceFlow id="edge_hTNI4p" sourceRef="Activity_CEatIo" targetRef="Gateway_eS8M9Q" />
+    <bpmn:sequenceFlow id="edge_WD4Gke" sourceRef="Activity_Xm7WdB" targetRef="Gateway_eS8M9Q" />
+    <bpmn:sequenceFlow id="edge_HaKOct" sourceRef="Gateway_eS8M9Q" targetRef="Activity_30Ym6K" />
+    <bpmn:sequenceFlow id="edge_qLCO4z" sourceRef="Activity_30Ym6K" targetRef="Event_pcaqKh" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="S_Event_4MkuVE" bpmnElement="Event_4MkuVE">
+        <dc:Bounds x="208" y="64" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="208" y="105" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Gateway_I6Gnib" bpmnElement="Gateway_I6Gnib">
+        <dc:Bounds x="688" y="57" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="688" y="112" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_CWOtgG" bpmnElement="Activity_CWOtgG">
+        <dc:Bounds x="320" y="42" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="320" y="127" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_Owxh7U" bpmnElement="Activity_Owxh7U">
+        <dc:Bounds x="496" y="42" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="496" y="127" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_H5D2m8" bpmnElement="Activity_H5D2m8">
+        <dc:Bounds x="560" y="192" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="560" y="277" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_EbwHpF" bpmnElement="Activity_EbwHpF">
+        <dc:Bounds x="1072" y="42" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1072" y="127" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_RmxXYH" bpmnElement="Activity_RmxXYH">
+        <dc:Bounds x="-320" y="368" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-320" y="453" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Event_pcaqKh" bpmnElement="Event_pcaqKh">
+        <dc:Bounds x="880" y="42" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="880" y="127" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Event_n4JxjR" bpmnElement="Event_n4JxjR">
+        <dc:Bounds x="1342" y="64" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1342" y="105" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_pVfgj6" bpmnElement="Activity_pVfgj6">
+        <dc:Bounds x="-128" y="416" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-128" y="501" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_CEatIo" bpmnElement="Activity_CEatIo">
+        <dc:Bounds x="704" y="576" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="704" y="661" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_Xm7WdB" bpmnElement="Activity_Xm7WdB">
+        <dc:Bounds x="864" y="480" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="864" y="565" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_30Ym6K" bpmnElement="Activity_30Ym6K">
+        <dc:Bounds x="960" y="880" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="960" y="965" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Gateway_jYykek" bpmnElement="Gateway_jYykek">
+        <dc:Bounds x="448" y="480" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="448" y="535" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Gateway_eS8M9Q" bpmnElement="Gateway_eS8M9Q">
+        <dc:Bounds x="160" y="720" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="160" y="775" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_d1yIxT" bpmnElement="edge_d1yIxT">
+        <di:waypoint x="244" y="82" />
+        <di:waypoint x="320" y="82" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_M1UVHb" bpmnElement="edge_M1UVHb">
+        <di:waypoint x="420" y="82" />
+        <di:waypoint x="496" y="82" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_gucEQ5" bpmnElement="edge_gucEQ5">
+        <di:waypoint x="596" y="82" />
+        <di:waypoint x="688" y="82" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_BqAwZ6" bpmnElement="edge_BqAwZ6">
+        <di:waypoint x="713" y="107" />
+        <di:waypoint x="713" y="149.5" />
+        <di:waypoint x="610" y="149.5" />
+        <di:waypoint x="610" y="192" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_3KyNAZ" bpmnElement="edge_3KyNAZ">
+        <di:waypoint x="738" y="82" />
+        <di:waypoint x="880" y="82" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_aI0YOK" bpmnElement="edge_aI0YOK">
+        <di:waypoint x="980" y="82" />
+        <di:waypoint x="1072" y="82" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_vUKGe2" bpmnElement="edge_vUKGe2">
+        <di:waypoint x="1172" y="82" />
+        <di:waypoint x="1342" y="82" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_90Rg0L" bpmnElement="edge_90Rg0L">
+        <di:waypoint x="610" y="272" />
+        <di:waypoint x="610" y="376" />
+        <di:waypoint x="473" y="376" />
+        <di:waypoint x="473" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_23OGCn" bpmnElement="edge_23OGCn">
+        <di:waypoint x="448" y="505" />
+        <di:waypoint x="428" y="505" />
+        <di:waypoint x="428" y="348" />
+        <di:waypoint x="-270" y="348" />
+        <di:waypoint x="-270" y="368" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_rlzX2w" bpmnElement="edge_rlzX2w">
+        <di:waypoint x="473" y="530" />
+        <di:waypoint x="473" y="550" />
+        <di:waypoint x="197.5" y="550" />
+        <di:waypoint x="197.5" y="396" />
+        <di:waypoint x="-78" y="396" />
+        <di:waypoint x="-78" y="416" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_p83pt7" bpmnElement="edge_p83pt7">
+        <di:waypoint x="473" y="530" />
+        <di:waypoint x="473" y="553" />
+        <di:waypoint x="754" y="553" />
+        <di:waypoint x="754" y="576" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_upttls" bpmnElement="edge_upttls">
+        <di:waypoint x="498" y="505" />
+        <di:waypoint x="518" y="505" />
+        <di:waypoint x="518" y="460" />
+        <di:waypoint x="914" y="460" />
+        <di:waypoint x="914" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_uQPmPc" bpmnElement="edge_uQPmPc">
+        <di:waypoint x="-270" y="448" />
+        <di:waypoint x="-270" y="745" />
+        <di:waypoint x="160" y="745" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_45ifuO" bpmnElement="edge_45ifuO">
+        <di:waypoint x="-78" y="496" />
+        <di:waypoint x="-78" y="608" />
+        <di:waypoint x="185" y="608" />
+        <di:waypoint x="185" y="720" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_hTNI4p" bpmnElement="edge_hTNI4p">
+        <di:waypoint x="754" y="656" />
+        <di:waypoint x="754" y="745" />
+        <di:waypoint x="210" y="745" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_WD4Gke" bpmnElement="edge_WD4Gke">
+        <di:waypoint x="914" y="560" />
+        <di:waypoint x="914" y="790" />
+        <di:waypoint x="185" y="790" />
+        <di:waypoint x="185" y="770" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_HaKOct" bpmnElement="edge_HaKOct">
+        <di:waypoint x="185" y="770" />
+        <di:waypoint x="185" y="825" />
+        <di:waypoint x="1010" y="825" />
+        <di:waypoint x="1010" y="880" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_qLCO4z" bpmnElement="edge_qLCO4z">
+        <di:waypoint x="1060" y="920" />
+        <di:waypoint x="1080" y="920" />
+        <di:waypoint x="1080" y="142" />
+        <di:waypoint x="930" y="142" />
+        <di:waypoint x="930" y="122" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
